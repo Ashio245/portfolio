@@ -16,6 +16,7 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [popups, setPopups] = useState<ChiikawaPopup[]>([]);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Sync state with HTML data-theme on mount
   useEffect(() => {
@@ -170,7 +171,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs font-bold tracking-widest text-foreground uppercase">
-              EMER <span className="text-muted">//</span> OPERATIONAL ARCHITECTURE
+              EMER <span className="hidden sm:inline"><span className="text-muted">//</span> OPERATIONAL ARCHITECTURE</span>
             </span>
           </div>
           
@@ -193,6 +194,15 @@ export default function Home() {
             >
               <span>THEME</span>
               <span className="text-teal-500 font-bold">{theme === "dark" ? "DARK" : "LIGHT"}</span>
+            </button>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden font-mono text-[9px] tracking-wider uppercase px-2.5 py-1.5 rounded border border-border bg-elevated hover:bg-background hover:text-foreground text-secondary transition flex items-center gap-1.5 shadow-xs cursor-pointer"
+              title="Toggle mobile menu"
+            >
+              <span>MENU</span>
             </button>
 
             <a 
@@ -221,9 +231,9 @@ export default function Home() {
             </div>
             
             <p className="text-secondary font-sans text-sm md:text-base max-w-xl leading-relaxed">
-              I am John Emerson Delos Reyes (Emer), a technical operations leader, QA intern, and startup co-founder. 
-              I design layout architectures, verify API endpoints, dynamic-price ticketing categories, and coordinate event-day validator systems 
-              that turn manual friction into stable operational pipelines.
+              I am John Emerson Delos Reyes (Emer), an IT student, QA intern, and startup co-founder. 
+              I specialize in organizing operational workflows, testing websites and apps for bugs, 
+              and coordinating teams and setups for live events to keep operations running smoothly.
             </p>
 
             <div className="flex flex-wrap gap-4 font-mono text-[10px] tracking-wider uppercase mt-2">
@@ -254,15 +264,15 @@ export default function Home() {
           
           <div className="md:col-span-8 flex flex-col gap-6 font-sans text-secondary text-xs md:text-sm leading-relaxed">
             <p>
-              I bridge the gap between technical logic and business execution. While many developers focus 
-              only on writing code and managers focus only on delegating tasks, I specialize in **organizing the machine**. 
-              I see manual spreadsheets, unsynced API keys, and fragmented event operations—then construct 
-              the standard procedures, verification protocols, and automated scripts to stabilize them.
+              I bridge the gap between software development and real-world business operations. While developers focus 
+              on writing code and managers focus on assignments, I specialize in **bringing order to workflows**. 
+              I look at messy spreadsheets, broken tools, and manual processes, then build the checklists, steps, 
+              and automated scripts to make them organized and reliable.
             </p>
             <p>
-              Currently combining real-world startup ownership, operations management, and QA internships with my academic track, 
-              studying **Bachelor of Science in Information Technology** at **Rizal Technological University**. 
-              I bring a disciplined technical foundation to help operations run, scale, and recover under pressure.
+              I am currently studying for a **Bachelor of Science in Information Technology** at **Rizal Technological University** 
+              while working as a QA intern and managing operations. I bring a strong technical background to help 
+              teams work efficiently and resolve issues quickly when under pressure.
             </p>
           </div>
         </section>
@@ -794,6 +804,52 @@ export default function Home() {
           );
         })}
       </div>
+
+      {/* Mobile Navigation Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md md:hidden animate-fadeIn flex flex-col justify-between p-6">
+          <div>
+            <div className="flex justify-between items-center mb-10">
+              <span className="font-mono text-xs font-bold tracking-widest text-foreground uppercase">
+                EMER <span className="text-muted">//</span> NAV
+              </span>
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="font-mono text-[9px] tracking-wider uppercase px-2.5 py-1.5 rounded border border-border bg-elevated hover:bg-background text-secondary cursor-pointer"
+              >
+                CLOSE
+              </button>
+            </div>
+            <nav className="flex flex-col gap-5 font-mono text-xs tracking-wider uppercase text-secondary">
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                About
+              </a>
+              <a href="#work" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Case Studies
+              </a>
+              <a href="#capabilities" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Capabilities
+              </a>
+              <a href="#leadership" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Leadership
+              </a>
+              <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Experience
+              </a>
+              <a href="#education" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Education
+              </a>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-foreground transition py-2 border-b border-border/40">
+                Contact
+              </a>
+            </nav>
+          </div>
+          <div className="text-center font-mono text-[8px] text-muted">
+            LOC: MUNTINLUPA CITY, PH // SECURED_SESSION
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

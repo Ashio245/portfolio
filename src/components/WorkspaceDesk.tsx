@@ -268,7 +268,7 @@ export default function WorkspaceDesk() {
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Type 'help' to see dynamic commands..."
-            className="flex-grow bg-transparent text-foreground border-none outline-none font-mono text-[10px] placeholder:text-muted"
+            className="flex-grow bg-transparent text-foreground border-none outline-none font-mono text-base md:text-[10px] placeholder:text-muted"
           />
           <button
             onClick={() => executeCommand(inputVal)}

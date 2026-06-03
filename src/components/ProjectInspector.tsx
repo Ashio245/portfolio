@@ -97,16 +97,16 @@ export default function ProjectInspector({ project, onClose }: ProjectInspectorP
             <span className="text-[9px] font-mono tracking-widest text-muted block uppercase mb-3 font-semibold">
               Performance Improvement / Impact
             </span>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {project.metrics.map((metric, i) => (
                 <div
                   key={i}
-                  className="bg-card border border-border p-4 rounded flex flex-col items-center justify-center text-center shadow-xs"
+                  className="bg-card border border-border p-2 sm:p-4 rounded flex flex-col items-center justify-center text-center shadow-xs"
                 >
-                  <span className="text-xl md:text-2xl font-serif text-teal-500 font-bold">
+                  <span className="text-sm sm:text-lg md:text-2xl font-serif text-teal-500 font-bold whitespace-nowrap">
                     {metric.value}
                   </span>
-                  <span className="text-[9px] font-mono text-secondary uppercase mt-1">
+                  <span className="text-[8px] sm:text-[9px] font-mono text-secondary uppercase mt-1 leading-tight">
                     {metric.label}
                   </span>
                 </div>
