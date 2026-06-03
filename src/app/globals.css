@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+:root {
+  --background: #040405;
+  --background-card: #0a0a0d;
+  --background-elevated: #111114;
+  
+  --foreground: #f4f4f5;
+  --foreground-secondary: #a1a1aa;
+  --foreground-muted: #71717a;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-muted: rgba(255, 255, 255, 0.035);
+  
+  --accent: 185 75% 50%; /* Electric cyan-teal */
+  --accent-rgb: 0, 229, 255;
+  
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-geist-sans), Inter, sans-serif;
+  --font-mono: var(--font-geist-mono), Courier, monospace;
+  
+  --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --glow-opacity: 0.15;
+  --grid-opacity: 0.025;
+  --canvas-bg: #060608;
+  --btn-bg: rgba(255, 255, 255, 0.02);
+  --btn-hover-bg: rgba(255, 255, 255, 0.04);
+  
+  --note-bg: rgba(254, 240, 138, 0.08); /* Dark mode: transparent yellow card */
+  --note-text: #fde047;                 /* Dark mode: bright high-contrast yellow */
+  --note-border: rgba(253, 224, 71, 0.25);
+  
+  --stamp-color: rgba(20, 184, 166, 0.45); /* Dark mode: clear teal stamp */
+  --stamp-border: rgba(20, 184, 166, 0.25);
+}
+
+html[data-theme="light"] {
+  --background: #fafaf9; /* Warm off-white paper */
+  --background-card: #ffffff;
+  --background-elevated: #f4f4f3;
+  
+  --foreground: #0e0e11;
+  --foreground-secondary: #4b5563;
+  --foreground-muted: #8b8b98;
+  
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-muted: rgba(0, 0, 0, 0.03);
+  
+  --accent: 185 70% 36%; /* Deeper cyan-teal for readability in light mode */
+  --accent-rgb: 15, 118, 110;
+  
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.025), 0 1px 4px rgba(0, 0, 0, 0.015);
+  --glow-opacity: 0.04;
+  --grid-opacity: 0.03;
+  --canvas-bg: #fcfcfb;
+  --btn-bg: rgba(0, 0, 0, 0.02);
+  --btn-hover-bg: rgba(0, 0, 0, 0.04);
+  
+  --note-bg: rgba(254, 249, 195, 0.95);  /* Light mode: high-contrast solid warm yellow */
+  --note-text: #713f12;                 /* Light mode: rich dark amber brown */
+  --note-border: rgba(245, 158, 11, 0.45);
+  
+  --stamp-color: rgba(13, 148, 136, 0.7); /* Light mode: rich dark teal ink */
+  --stamp-border: rgba(13, 148, 136, 0.45);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-card: var(--background-card);
+  --color-elevated: var(--background-elevated);
+  
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--foreground-secondary);
+  --color-muted: var(--foreground-muted);
+  
+  --color-border: var(--border-color);
+  --color-border-muted: var(--border-color-muted);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.6);
+}
+
+/* Reset and Core Layout with transitions */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Apply theme transition globally for visual elements */
+div, header, main, footer, section, a, button, p, span, h1, h2, h3, h4, input, textarea {
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Utilities for Technical Typography & Editorial Feel */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.text-display-xl {
+  font-size: clamp(2.5rem, 7.5vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.text-display-lg {
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-display-md {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+}
+
+/* Interactive Technical Dots and Borders */
+.tech-dot {
+  position: relative;
+}
+.tech-dot::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background-color: hsl(var(--accent));
+  box-shadow: 0 0 8px hsl(var(--accent) / 0.8);
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.radial-mask {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+}
+
+/* Timeline Custom Styles */
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  border-left: 1px solid var(--border-color);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--background);
+  border: 2px solid var(--foreground-secondary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.timeline-item:hover::before {
+  border-color: hsl(var(--accent));
+  background-color: hsl(var(--accent));
+  box-shadow: 0 0 10px hsl(var(--accent));
+  transform: scale(1.2);
+}
+
+/* Animations for Drawer Panel & Backdrop */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Elevated Interactive Card Hover States */
+.case-card {
+  background-color: var(--background-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.case-card:hover {
+  border-color: hsl(var(--accent) / 0.4);
+  background-color: var(--background-elevated);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1), 0 4px 12px hsl(var(--accent) / 0.03);
+  transform: translateY(-2px);
+}
+.case-card:hover .case-arrow {
+  transform: translate(3px, -3px);
+  color: hsl(var(--accent));
+}
+
+/* Custom button states */
+.btn-technical {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-color);
+  background: var(--btn-bg);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-technical:hover {
+  border-color: hsl(var(--accent));
+  color: var(--foreground);
+  background: var(--btn-hover-bg);
+  box-shadow: 0 4px 12px hsl(var(--accent) / 0.05);
+}
+.btn-technical::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: hsl(var(--accent));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-technical:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Dynamic Alert Flashing for Operations Simulator */
+@keyframes warningFlash {
+  0%, 100% {
+    border-color: var(--border-color);
+    box-shadow: var(--card-shadow);
+  }
+  50% {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(239, 68, 68, 0.05);
+  }
+}
+
+.warning-pulse {
+  animation: warningFlash 1s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* ==========================================
+   CHIIKAWA EASTER EGG FLOATING ANIMATION
+   ========================================== */
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.65);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(75vh) rotate(var(--random-rotation, 8deg)) scale(1.05);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-25vh) rotate(var(--random-rotation, -12deg)) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.chiikawa-float {
+  animation: floatUp 3.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+
+
