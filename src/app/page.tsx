@@ -225,7 +225,7 @@ export default function Home() {
               <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-3 font-semibold">
                 MUNTINLUPA CITY, PHILIPPINES // BS IT STUDENT
               </span>
-              <h1 className="font-display text-display-xl text-foreground font-normal">
+              <h1 className="font-display text-display-xl text-foreground font-semibold tracking-tight">
                 I build structure<br />behind execution.
               </h1>
             </div>
@@ -257,7 +257,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               IDENTITY OVERVIEW
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Operator-<br />Builder.
             </h2>
           </div>
@@ -296,7 +296,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               OPERATIONAL ARTIFACTS
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Selected Work
             </h2>
             <p className="text-secondary text-xs md:text-sm font-sans max-w-lg mt-2">
@@ -355,7 +355,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               FUNCTIONAL PILLARS
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Capabilities
             </h2>
             <p className="text-secondary text-xs md:text-sm font-sans max-w-lg mt-2">
@@ -427,7 +427,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               RULES OF EXECUTION
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Operating Philosophy
             </h2>
             <p className="text-muted text-xs md:text-sm font-sans max-w-sm mt-3 leading-relaxed">
@@ -499,7 +499,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               COMMUNITY DIRECTIVES
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Leadership &amp;<br />Community.
             </h2>
             <p className="text-muted text-xs md:text-sm font-sans max-w-sm mt-3 leading-relaxed">
@@ -552,7 +552,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               CHRONOLOGICAL LOG
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Experience
             </h2>
             <p className="text-muted text-xs md:text-sm font-sans max-w-sm mt-3 leading-relaxed">
@@ -657,7 +657,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               ACADEMIC FILE
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Education &amp;<br />Credentials.
             </h2>
             <p className="text-muted text-xs md:text-sm font-sans max-w-sm mt-3 leading-relaxed">
@@ -687,7 +687,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
               ENVIRONMENT CONFIGURATION
             </span>
-            <h2 className="font-display text-display-lg text-foreground">
+            <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
               Stack &amp; Pipelines
             </h2>
             <p className="text-secondary text-xs md:text-sm font-sans max-w-md mt-2">
@@ -706,7 +706,7 @@ export default function Home() {
                 <span className="font-mono text-[10px] tracking-widest text-teal-500 uppercase block mb-2 font-semibold">
                   STABLE_COMMUNICATION_LINK
                 </span>
-                <h2 className="font-display text-display-lg text-foreground font-normal">
+                <h2 className="font-display text-display-lg text-foreground font-semibold tracking-tight">
                   Let's architect the<br />next system.
                 </h2>
               </div>

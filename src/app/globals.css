@@ -15,7 +15,7 @@
   --accent: 185 75% 50%; /* Electric cyan-teal */
   --accent-rgb: 0, 229, 255;
   
-  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-serif: var(--font-plus-jakarta-sans), var(--font-geist-sans), Inter, sans-serif;
   --font-sans: var(--font-geist-sans), Inter, sans-serif;
   --font-mono: var(--font-geist-mono), Courier, monospace;
   
@@ -115,7 +115,6 @@ div, header, main, footer, section, a, button, p, span, h1, h2, h3, h4, input, t
 /* Custom Utilities for Technical Typography & Editorial Feel */
 .font-display {
   font-family: var(--font-serif);
-  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
